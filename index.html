@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Estimation time.</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mandali&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <h1>Bad at maths and asking how much time will your film last ?</h1>
+    </div>
+    <div class="test"></div>
+    <section>
+      <div class="time-estimation">
+        <form id="form-estimation">
+          <input
+            type="number"
+            placeholder="Put hour(s) of your film"
+            id="hours"
+            name="hours"
+          />
+          <label for="hours">hours</label>
+
+          <input
+            type="number"
+            placeholder="Put minutes of your film"
+            id="minutes"
+            name="minutes"
+          /><label for="minutes"> minutes</label>
+          <input
+            type="number"
+            placeholder="Put seconds of your film"
+            name="seconds"
+            id="seconds"
+          />
+          <label for="seconds">seconds</label>
+          <div class="speed-control">
+            <label for="speed">Choose your speed</label>
+
+            <select name="speed" id="speed-controller">
+              <option value="0.5">0.5</option>
+              <option value="0.75">0.75</option>
+              <option value="1">1</option>
+              <option value="1.25">1.25</option>
+              <option value="1.5">1.5</option>
+              <option value="1.75">1.75</option>
+              <option value="2">2</option>
+            </select>
+          </div>
+          <input type="submit" value="Send" id="submit-button" />
+        </form>
+        <div class="result"></div>
+      </div>
+    </section>
+
+    <script src="index.js"></script>
+  </body>
+</html>

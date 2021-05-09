@@ -1,0 +1,54 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Mandali", sans-serif;
+}
+
+body {
+  width: 100%;
+}
+
+.navbar {
+  text-align: center;
+  margin: 30px;
+}
+
+.time-estimation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  font-size: 30px;
+}
+
+#submit-button {
+  width: 50px;
+}
+
+form input[type="number"] {
+  width: 175px;
+  height: 26px;
+  padding: 4px;
+  border: none;
+  border-bottom: 1px solid black;
+  text-align: center;
+}
+
+form input[type="number"]:focus {
+  outline: none;
+}
+.speed-control {
+  display: flex;
+  margin-top: 30px;
+  font-size: 28px;
+}
+.speed-control select {
+  width: 50px;
+  margin-top: 15px;
+  height: 30px;
+  margin-left: 15px;
+}
