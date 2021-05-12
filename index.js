@@ -14,23 +14,22 @@ form.addEventListener("submit", (e) => {
 
   const speed = speedController.options[speedController.selectedIndex].value;
   // We can considerer intial time as a distance and so apply the following method : "Speed = D/t" <=> "T = D/Speed"
-  const estimatedTime = time / speed;
+  const estimatedTime = Math.floor(time / speed);
   const filmTime = document.createElement("h1");
   const resultTime = document.createElement("h1");
   filmTime.innerText = `Your film will last around : ${estimatedTime} minutes`;
-  resultTime.innerText = `You will have to watch around more : ${
-    time - filmTime
-  }`;
+  resultTime.innerText = "";
 
   if (speed < 1) {
-    resultTime.innerText = `You will have to watch around more : ${
-      filmTime - time
-    }`;
-  } else if (speed == 1) {
-    resultTime.innerText = "";
+    resultTime.innerText = `You will have to watch around more : ${Math.floor(
+      estimatedTime - time
+    )} minutes`;
+  } else if (speed > 1) {
+    resultTime.innerText = `You will have to watch around less : ${Math.floor(
+      time - estimatedTime
+    )} minutes`;
   }
 
-  estimatedTime - Math.floor(time);
   result.appendChild(filmTime);
   result.appendChild(resultTime);
 });
