@@ -13,26 +13,24 @@ form.addEventListener("submit", (e) => {
     parseInt(hours) * 60 + parseInt(minutes) + parseInt(seconds) / 100;
 
   const speed = speedController.options[speedController.selectedIndex].value;
-  if (speed <= 1) {
-    const estimatedTime = time * (1 + (1 - speed));
-    const filmTime = document.createElement("h1");
-    const resultTime = document.createElement("h1");
-    filmTime.innerText = `Your film will last around : ${estimatedTime} minutes`;
+  // We can considerer intial time as a distance and so apply the following method : "Speed = D/t" <=> "T = D/Speed"
+  const estimatedTime = time / speed;
+  const filmTime = document.createElement("h1");
+  const resultTime = document.createElement("h1");
+  filmTime.innerText = `Your film will last around : ${estimatedTime} minutes`;
+  resultTime.innerText = `You will have to watch around more : ${
+    time - filmTime
+  }`;
+
+  if (speed < 1) {
     resultTime.innerText = `You will have to watch around more : ${
-      estimatedTime - Math.floor(time)
-    } minutes`;
-    result.appendChild(filmTime);
-    result.appendChild(resultTime);
-  } else if (speed > 1) {
-    // To put the spped of a film at a certain value which is greater than 1, come back to decrease the time
-    const estimatedTime = time * (2 - speed);
-    const filmTime = document.createElement("h1");
-    const resultTime = document.createElement("h1");
-    filmTime.innerText = `Your film will last around : ${estimatedTime} minutes`;
-    resultTime.innerText = `You will save around : ${
-      Math.floor(time) - estimatedTime
-    } minutes`;
-    result.appendChild(filmTime);
-    result.appendChild(resultTime);
+      filmTime - time
+    }`;
+  } else if (speed == 1) {
+    resultTime.innerText = "";
   }
+
+  estimatedTime - Math.floor(time);
+  result.appendChild(filmTime);
+  result.appendChild(resultTime);
 });
